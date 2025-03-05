@@ -1,12 +1,17 @@
-import styles from './Search.module.scss'
+import React from "react";
+
+import { Input } from "@/components/ui/input";
 
 export function Search() {
-  return <div className={styles.base}>
-    <div className={styles.search}>
-    
-    </div>
-    <div className={styles.filters}>
+  const [searchText, setSearchText] = React.useState("");
 
+  return (
+    <div className="flex flex-col p-2">
+      <Input
+        value={searchText}
+        onChange={(event) => setSearchText(event.currentTarget.value)}
+      />
+      <div className=""></div>
     </div>
-  </div>
+  );
 }
