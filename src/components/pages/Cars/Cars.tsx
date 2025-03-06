@@ -4,9 +4,9 @@ import { Search } from "@/components/common/Search";
 import { store } from "@/store";
 import { helpers } from "@/helpers";
 
-type Car = {
+export type Car = {
   id: string | number;
-  image: ImageMetadata;
+  image: string;
   brand: string;
   model: string;
   isTopCar?: boolean;
@@ -36,9 +36,9 @@ export function Cars(props: Props) {
   }, [filters, props.cars]);
 
   return (
-    <div className="p-4 flex flex-col gap-y-12">
+    <div className="p-4 flex flex-col gap-y-12 h-full overflow-auto">
       <Search />
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 h-full max-h-full overflow-auto">
         {cars.map((car) => (
           <CarCard key={car.id} {...car} />
         ))}

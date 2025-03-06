@@ -1,4 +1,5 @@
 import React from "react";
+import { navigate } from 'astro:transitions/client';
 
 import { cn } from "@/lib/utils";
 
@@ -16,7 +17,7 @@ export function Header() {
   }, []);
 
   function handleLogoClick() {
-    window.location.href = "/";
+    navigate('/')
   }
 
   return (

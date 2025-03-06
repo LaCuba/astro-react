@@ -2,7 +2,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
 interface CarCardProps {
-  image: ImageMetadata;
+  image: string;
   brand: string;
   model: string;
 }
@@ -11,7 +11,7 @@ export function CarCard({ image, brand, model }: CarCardProps) {
   return (
     <Card className="w-95 h-86 rounded-[10px] overflow-hidden shadow-md p-0 gap-y-2">
       <img
-        src={image.src}
+        src={image}
         alt={`${brand} ${model}`}
         className="w-full h-48 object-cover rounded-[10px]"
       />

@@ -118,7 +118,21 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+}
+
+
+* {
+  /* Firefox */
+  scrollbar-width: none;
+  /* Internet Explorer 10+ */
+  -ms-overflow-style: none;
+}
+
+/* Для WebKit-браузеров (Chrome, Safari, Edge) */
+*::-webkit-scrollbar {
+  display: none;
 }

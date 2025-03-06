@@ -1,22 +1,21 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { Cars } from "../components/pages/Cars";
-import audi_a6 from "@/assets/audi/audi_a6.jpeg";
+import { Cars, type Car } from "../components/pages/Cars";
+import { CARS } from "@/constants";
+import { helpers } from "@/helpers";
 
-const CARS = [
-  {
-    id: 3,
-    image: audi_a6,
-    brand: "AUDI",
-    model: "A6",
-    isTopCar: true,
-  },
-];
+const audiCars = CARS.filter((car) => car.brand === "AUDI");
+
+const cars = (await helpers.astro.setAstroImagesInArray(
+  audiCars,
+  "image",
+  "webp",
+)) as Car[];
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-  <Cars client:visible cars={CARS} />
+  <Cars client:visible cars={cars} />
 </Layout>
