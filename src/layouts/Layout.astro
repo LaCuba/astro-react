@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import { Header } from "@/components/common/Header";
 ---
 
 <!doctype html>
@@ -12,7 +13,16 @@ import "../styles/global.css";
     <title>Car viewer</title>
   </head>
   <body>
-    <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
+    <div
+      style={{
+        maxWidth: "1280px",
+        margin: "0 auto",
+        display: "flex",
+        flexDirection: "column",
+        gap: "5 0px",
+      }}
+    >
+      <Header client:visible />
       <slot />
     </div>
   </body>
