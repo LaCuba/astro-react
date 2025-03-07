@@ -36,7 +36,7 @@ export async function handleSameRequest<T>(
 ): Promise<T> {
   try {
     const baseURL = import.meta.env.SITE || "http://localhost:4321";
-    const response = await fetch(new URL("/api/cars/", baseURL), params.init);
+    const response = await fetch(new URL(params.url, baseURL), params.init);
 
     if (!response.ok) {
       throw new Error(`Ошибка ${response.status}: ${await response.text()}`);

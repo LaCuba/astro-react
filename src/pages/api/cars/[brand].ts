@@ -12,8 +12,8 @@ const BRANDS_CARS = {
 type Params = { brand?: ValueOf<typeof BRANDS_CARS> };
 
 export const GET: APIRoute<{}, Params> = async ({ params }) => {
-  console.log('params.brand __________________________________', params.brand)
   const isIncludeBrand = __.includes(__.values(BRANDS_CARS), params?.brand);
+
   if (params.brand && !isIncludeBrand) {
     return new Response(null, {
       status: 404,
