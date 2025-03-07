@@ -2,10 +2,16 @@
 import Layout from "../layouts/Layout.astro";
 import { Cars, type Car } from "../components/pages/Cars";
 import { helpers } from "@/helpers";
-import { CARS } from "@/constants";
 
-const cars = (await helpers.astro.setAstroImagesInArray(
-  CARS,
+const cars = await helpers.astro.handleSameRequest<Car[]>(
+  {
+    url: "/api/cars/",
+  },
+  [],
+);
+
+const preparedCars = (await helpers.astro.setAstroImagesInArray(
+  cars,
   "image",
   "webp",
 )) as Car[];
@@ -15,5 +21,5 @@ const cars = (await helpers.astro.setAstroImagesInArray(
 ---
 
 <Layout>
-  <Cars client:visible cars={cars} />
+  <Cars client:visible cars={preparedCars} />
 </Layout>
