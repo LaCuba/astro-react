@@ -17,12 +17,10 @@ export async function setAstroImagesInArray<T extends Object>(
     return item;
   });
 
-  return await Promise.all(promiseCars)
-    .then((response) => response)
-    .catch((error) => {
-      console.error(error);
-      return [];
-    });
+  return await Promise.all(promiseCars).catch((error) => {
+    console.error(error);
+    return [];
+  });
 }
 
 export type FetchParams = {
